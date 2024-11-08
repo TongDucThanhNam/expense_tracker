@@ -44,15 +44,18 @@ class _NewExpenseState extends State<NewExpense> {
       showDialog(
         context: context,
         builder: (ctx) => AlertDialog(
-          title: const Text("Invalid input"),
+          title: const Text(
+            "Invalid input",
+          ),
           content: const Text(
-              "Please make sure a valid title, amount, date and Category was entered"),
+            "Please make sure a valid title, amount, date and Category was entered",
+          ),
           actions: [
             TextButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text("Okey"))
+                child: const Text("Okey"))
           ],
         ),
       );
@@ -60,7 +63,7 @@ class _NewExpenseState extends State<NewExpense> {
     }
 
     //save new expense
-    widget.addNewExpense(new Expense(
+    widget.addNewExpense(Expense(
         title: _titleController.text,
         amount: enteredAmount,
         date: _selectedDate!,
@@ -83,7 +86,6 @@ class _NewExpenseState extends State<NewExpense> {
 
     return LayoutBuilder(builder: (cxt, constraints) {
       final width = constraints.maxWidth;
-      final height = constraints.maxHeight;
 
       return SizedBox(
         height: double.infinity,
@@ -102,7 +104,8 @@ class _NewExpenseState extends State<NewExpense> {
                         child: TextField(
                           controller: _titleController,
                           maxLength: 50,
-                          decoration: InputDecoration(label: Text("Title")),
+                          decoration:
+                              const InputDecoration(label: Text("Title")),
                         ),
                       ),
                       const SizedBox(
@@ -112,7 +115,7 @@ class _NewExpenseState extends State<NewExpense> {
                         child: TextField(
                           controller: _amountController,
                           keyboardType: TextInputType.number,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             prefix: Text("\$"),
                             label: Text("Amount"),
                           ),
@@ -124,7 +127,7 @@ class _NewExpenseState extends State<NewExpense> {
                   TextField(
                     controller: _titleController,
                     maxLength: 50,
-                    decoration: InputDecoration(label: Text("Title")),
+                    decoration: const InputDecoration(label: Text("Title")),
                   ),
                 if (width >= 600)
                   Row(
@@ -150,7 +153,7 @@ class _NewExpenseState extends State<NewExpense> {
                           }
                         },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 24,
                       ),
                       Expanded(
@@ -162,7 +165,7 @@ class _NewExpenseState extends State<NewExpense> {
                                 : "${_selectedDate?.day}/${_selectedDate?.month}/${_selectedDate?.year}"),
                             IconButton(
                                 onPressed: _presentPickDateTime,
-                                icon: Icon(Icons.date_range))
+                                icon: const Icon(Icons.date_range))
                           ],
                         ),
                       ),
@@ -176,13 +179,13 @@ class _NewExpenseState extends State<NewExpense> {
                         child: TextField(
                           controller: _amountController,
                           keyboardType: TextInputType.number,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             prefix: Text("\$"),
                             label: Text("Amount"),
                           ),
                         ),
                       ),
-                      SizedBox(),
+                      const SizedBox(),
                       Expanded(
                           child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -192,7 +195,7 @@ class _NewExpenseState extends State<NewExpense> {
                               : "${_selectedDate?.day}/${_selectedDate?.month}/${_selectedDate?.year}"),
                           IconButton(
                               onPressed: _presentPickDateTime,
-                              icon: Icon(Icons.date_range))
+                              icon: const Icon(Icons.date_range))
                         ],
                       ))
                     ],
@@ -204,11 +207,11 @@ class _NewExpenseState extends State<NewExpense> {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child: Text("Cancel"),
+                        child: const Text("Cancel"),
                       ),
                       ElevatedButton(
                         onPressed: _submitExpenseData,
-                        child: Text("Save title"),
+                        child: const Text("Save title"),
                       ),
                     ],
                   )
@@ -236,15 +239,15 @@ class _NewExpenseState extends State<NewExpense> {
                           }
                         },
                       ),
-                      Spacer(),
+                      const Spacer(),
                       TextButton(
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          child: Text("Cancel")),
+                          child: const Text("Cancel")),
                       ElevatedButton(
                           onPressed: _submitExpenseData,
-                          child: Text("Save title")),
+                          child: const Text("Save title")),
                     ],
                   )
               ],
